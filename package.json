@@ -1,12 +1,12 @@
 {
-  "name": "bewly-cat",
-  "displayName": "BewlyCat",
+  "name": "bewly-neko",
+  "displayName": "BewlyNeko",
   "type": "module",
   "version": "1.6.8",
   "private": true,
   "packageManager": "pnpm@10.21.0",
   "description": "Just make a few small changes to your Bilibili homepage.",
-  "homepage": "https://github.com/keleus/BewlyCat",
+  "homepage": "https://github.com/ermengchao/BewlyNeko",
   "scripts": {
     "build-pack": "pnpm build && pnpm build-firefox && pnpm pack:zip && pnpm pack:zip-firefox && pnpm pack:zip-firefox-sources",
     "dev": "npm run clear && cross-env NODE_ENV=development run-p dev:*",

@@ -59,7 +59,7 @@ iframe_drawer:
   press_esc_again_to_close: 撳多次 Esc 關閉
 settings:
   title: 設定
-  menu_plugin_components_and_pages: BewlyCat界面
+  menu_plugin_components_and_pages: BewlyNeko界面
   menu_bilibili_features_enhancement: Bilibili功能
   menu_appearance: 版面
   menu_compatibility: 相容性
@@ -263,7 +263,7 @@ settings:
     dark: 深色
     auto: 自動
   video_page_dark_mode: 淨係影片播放頁用深色模式
-  video_page_dark_mode_desc: 保持全站色系設定唔變，淨係喺影片播放頁啟用 BewlyCat 深色樣式。
+  video_page_dark_mode_desc: 保持全站色系設定唔變，淨係喺影片播放頁啟用 BewlyNeko 深色樣式。
   theme_color: 主題色
   gradient_theme_color_background: 使用漸層主題色作爲深色模式嘅背景
   wallpaper_mode: 背景圖片模式
@@ -427,7 +427,7 @@ settings:
   enable_clean_share_link: 使用分享連結淨化
   enable_clean_share_link_desc: >
     開咗之後，分享連結會自動移除追蹤參數，仲可以揀要唔要加埋影片標題。
-    呢個功能適用於 BewlyCat 嘅複製連結功能，同時亦會攔截 Bilibili 原生分享掣嘅複製內容。
+    呢個功能適用於 BewlyNeko 嘅複製連結功能，同時亦會攔截 Bilibili 原生分享掣嘅複製內容。
   clean_share_link_include_title: 分享時加埋影片標題
   clean_share_link_include_title_desc: >
     分享嗰陣喺連結前面加埋影片標題，例如 "影片標題 https://www.bilibili.com/video/BVxxx"

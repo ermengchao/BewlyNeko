@@ -13,7 +13,7 @@ const settingsReadyPromise = new Promise<void>((resolve) => {
 
 const isElectronEnv = isElectron()
 if (isElectronEnv) {
-  console.warn('[BewlyCat] Detected Electron environment, extension disabled.')
+  console.warn('[BewlyNeko] Detected Electron environment, extension disabled.')
 }
 else {
 // 之前inject.js的内容

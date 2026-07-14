@@ -59,7 +59,7 @@ iframe_drawer:
   press_esc_again_to_close: Press Esc again to close
 settings:
   title: Settings
-  menu_plugin_components_and_pages: BewlyCat Interface
+  menu_plugin_components_and_pages: BewlyNeko Interface
   menu_bilibili_features_enhancement: Bilibili Features
   menu_appearance: Appearance
   menu_compatibility: Compatibility
@@ -320,7 +320,7 @@ settings:
     dark: Dark
     auto: Auto
   video_page_dark_mode: Video page dark mode only
-  video_page_dark_mode_desc: Keep the global theme unchanged and enable BewlyCat dark styles only on video playback pages.
+  video_page_dark_mode_desc: Keep the global theme unchanged and enable BewlyNeko dark styles only on video playback pages.
   theme_color: Theme color
   dark_mode_base_color: Dark mode base color
   gradient_theme_color_background: Use a gradient theme color as the background in dark mode
@@ -647,7 +647,7 @@ settings:
   enable_clean_share_link: Enable clean share link
   enable_clean_share_link_desc: >
     When enabled, the share link will be cleaned by removing tracking parameters and optionally including the video title.
-    This applies to BewlyCat's copy link feature and intercepts Bilibili's native share button.
+    This applies to BewlyNeko's copy link feature and intercepts Bilibili's native share button.
   clean_share_link_include_title: Include video title in shared link
   clean_share_link_include_title_desc: >
     When sharing, the video title will be added before the link, e.g. "Video Title https://www.bilibili.com/video/BVxxx"

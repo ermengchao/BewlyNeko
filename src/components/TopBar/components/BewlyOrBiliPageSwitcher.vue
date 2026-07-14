@@ -11,7 +11,7 @@ const { getDockItemByPage } = useMainStore()
 const { getDockItemConfigByPage } = useSettingsStore()
 const options = readonly([
   {
-    name: 'BewlyCat',
+    name: 'BewlyNeko',
     shortName: 'Bewly',
     useOriginalBiliPage: false,
   },

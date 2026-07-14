@@ -79,14 +79,14 @@ export function getCurrentEpisodeIndex(episodes: HTMLElement[]): number {
 
 // 获取随机下一集
 export function getRandomNextEpisode(episodes: HTMLElement[], currentIndex: number): number {
-  console.log('[BewlyCat Random Play] getRandomNextEpisode called, currentIndex:', currentIndex, 'visitedEpisodes:', Array.from(visitedEpisodes))
+  console.log('[BewlyNeko Random Play] getRandomNextEpisode called, currentIndex:', currentIndex, 'visitedEpisodes:', Array.from(visitedEpisodes))
 
   if (episodes.length <= 1)
     return currentIndex
 
   // 如果所有视频都已访问，重置访问记录
   if (visitedEpisodes.size >= episodes.length) {
-    console.log('[BewlyCat Random Play] All episodes visited, resetting')
+    console.log('[BewlyNeko Random Play] All episodes visited, resetting')
     visitedEpisodes.clear()
     visitedEpisodes.add(currentIndex)
   }
@@ -96,26 +96,26 @@ export function getRandomNextEpisode(episodes: HTMLElement[], currentIndex: numb
     .map((_, index) => index)
     .filter(index => !visitedEpisodes.has(index))
 
-  console.log('[BewlyCat Random Play] Unvisited indices:', unvisitedIndices)
+  console.log('[BewlyNeko Random Play] Unvisited indices:', unvisitedIndices)
 
   if (unvisitedIndices.length === 0) {
-    console.log('[BewlyCat Random Play] No unvisited indices, selecting random excluding current')
+    console.log('[BewlyNeko Random Play] No unvisited indices, selecting random excluding current')
     // 如果没有未访问的视频，随机选择一个不是当前视频的
     const availableIndices = episodes
       .map((_, index) => index)
       .filter(index => index !== currentIndex)
 
     if (availableIndices.length === 0) {
-      console.log('[BewlyCat Random Play] No available indices')
+      console.log('[BewlyNeko Random Play] No available indices')
       return currentIndex
     }
     const selected = availableIndices[Math.floor(Math.random() * availableIndices.length)]
-    console.log('[BewlyCat Random Play] Selected from available:', selected)
+    console.log('[BewlyNeko Random Play] Selected from available:', selected)
     return selected
   }
 
   const selected = unvisitedIndices[Math.floor(Math.random() * unvisitedIndices.length)]
-  console.log('[BewlyCat Random Play] Selected from unvisited:', selected)
+  console.log('[BewlyNeko Random Play] Selected from unvisited:', selected)
   return selected
 }
 
@@ -126,14 +126,14 @@ export function jumpToEpisode(episodes: HTMLElement[], targetIndex: number): voi
   }
 
   const targetEpisode = episodes[targetIndex]
-  console.log('[BewlyCat Random Play] Target episode element:', targetEpisode)
+  console.log('[BewlyNeko Random Play] Target episode element:', targetEpisode)
 
   // 尝试多种方式找到可点击的元素
   let clickableElement: HTMLElement | null = null
 
   // 1. 优先查找链接
   const link = targetEpisode.querySelector('a') as HTMLAnchorElement
-  console.log('[BewlyCat Random Play] Found link:', link, 'href:', link?.href)
+  console.log('[BewlyNeko Random Play] Found link:', link, 'href:', link?.href)
 
   if (link && link.href) {
     clickableElement = link
@@ -141,7 +141,7 @@ export function jumpToEpisode(episodes: HTMLElement[], targetIndex: number): voi
   else {
     // 2. 查找 .simple-base-item 元素（B站新版播放列表项）
     const simpleBaseItem = targetEpisode.querySelector('.simple-base-item') as HTMLElement
-    console.log('[BewlyCat Random Play] Found .simple-base-item:', simpleBaseItem)
+    console.log('[BewlyNeko Random Play] Found .simple-base-item:', simpleBaseItem)
 
     if (simpleBaseItem) {
       clickableElement = simpleBaseItem
@@ -160,29 +160,29 @@ export function jumpToEpisode(episodes: HTMLElement[], targetIndex: number): voi
   }
 
   if (!clickableElement) {
-    console.log('[BewlyCat Random Play] No clickable element found')
+    console.log('[BewlyNeko Random Play] No clickable element found')
     return
   }
 
-  console.log('[BewlyCat Random Play] Clickable element:', clickableElement)
+  console.log('[BewlyNeko Random Play] Clickable element:', clickableElement)
 
   // 使用更智能的点击策略
   const performClick = () => {
     try {
-      console.log('[BewlyCat Random Play] Attempting to click element:', targetIndex, clickableElement)
+      console.log('[BewlyNeko Random Play] Attempting to click element:', targetIndex, clickableElement)
 
       // 标记为已访问（在点击前标记，防止点击失败后重复尝试）
       visitedEpisodes.add(targetIndex)
 
       // 如果是链接，尝试点击
       if (clickableElement instanceof HTMLAnchorElement && clickableElement.href) {
-        console.log('[BewlyCat Random Play] Clicking anchor element, href:', clickableElement.href)
+        console.log('[BewlyNeko Random Play] Clicking anchor element, href:', clickableElement.href)
         clickableElement.click()
         return
       }
 
       // 对于没有链接的元素（如 video-pod__item），模拟真实点击
-      console.log('[BewlyCat Random Play] Simulating click on element')
+      console.log('[BewlyNeko Random Play] Simulating click on element')
 
       // 方法1: 直接点击
       clickableElement!.click()
@@ -217,13 +217,13 @@ export function jumpToEpisode(episodes: HTMLElement[], targetIndex: number): voi
               detail: 1,
             })
             clickableElement!.dispatchEvent(clickEvent)
-            console.log('[BewlyCat Random Play] Click sequence completed')
+            console.log('[BewlyNeko Random Play] Click sequence completed')
           }, 10)
         }, 10)
       }, 10)
     }
     catch (error) {
-      console.error('[BewlyCat Random Play] Click failed:', error)
+      console.error('[BewlyNeko Random Play] Click failed:', error)
     }
   }
 
@@ -366,17 +366,17 @@ export function enableRandomPlay(): void {
 
     // 创建新的随机播放监听器
     const randomPlayListener = () => {
-      console.log('[BewlyCat Random Play] Video ended, random play listener triggered')
+      console.log('[BewlyNeko Random Play] Video ended, random play listener triggered')
 
       // 防止重复触发（ended 和 pause 事件可能都会触发）
       if (isProcessing) {
-        console.log('[BewlyCat Random Play] Already processing, skipping')
+        console.log('[BewlyNeko Random Play] Already processing, skipping')
         return
       }
 
       // 关键：检查随机播放是否仍然启用
       if (!isRandomPlayEnabled) {
-        console.log('[BewlyCat Random Play] Random play disabled, skipping')
+        console.log('[BewlyNeko Random Play] Random play disabled, skipping')
         return
       }
 
@@ -388,29 +388,29 @@ export function enableRandomPlay(): void {
         isProcessing = false
         // 再次检查状态，防止在延迟期间被禁用
         if (!isRandomPlayEnabled) {
-          console.log('[BewlyCat Random Play] Random play disabled during delay, skipping')
+          console.log('[BewlyNeko Random Play] Random play disabled during delay, skipping')
           return
         }
 
         const episodes = getVideoEpisodes()
-        console.log('[BewlyCat Random Play] Found episodes:', episodes.length)
+        console.log('[BewlyNeko Random Play] Found episodes:', episodes.length)
 
         if (episodes.length <= 1) {
-          console.log('[BewlyCat Random Play] Not enough episodes')
+          console.log('[BewlyNeko Random Play] Not enough episodes')
           return
         }
 
         const currentIndex = getCurrentEpisodeIndex(episodes)
-        console.log('[BewlyCat Random Play] Current episode index:', currentIndex)
+        console.log('[BewlyNeko Random Play] Current episode index:', currentIndex)
 
         const nextIndex = getRandomNextEpisode(episodes, currentIndex)
-        console.log('[BewlyCat Random Play] Next episode index:', nextIndex)
+        console.log('[BewlyNeko Random Play] Next episode index:', nextIndex)
 
         if (nextIndex !== currentIndex) {
           jumpToEpisode(episodes, nextIndex)
         }
         else {
-          console.log('[BewlyCat Random Play] Next index same as current, not jumping')
+          console.log('[BewlyNeko Random Play] Next index same as current, not jumping')
         }
       }, 1500) // 增加到1.5秒延迟，确保播放完全结束
     }

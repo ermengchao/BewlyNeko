@@ -65,7 +65,7 @@ jobs:
         if: ${{ matrix.os == 'ubuntu-latest' && matrix.node == 'lts/*' && github.ref_name == 'main' }}
         uses: actions/upload-artifact@v4.3.1
         with:
-          name: BewlyCat-chrome-extension
+          name: BewlyNeko-chrome-extension
           path: extension
 
       - name: Build Firefox Extension
@@ -75,5 +75,5 @@ jobs:
         if: ${{ matrix.os == 'ubuntu-latest' && matrix.node == 'lts/*' && github.ref_name == 'main' }}
         uses: actions/upload-artifact@v4.3.1
         with:
-          name: BewlyCat-firefox-extension
+          name: BewlyNeko-firefox-extension
           path: extension-firefox

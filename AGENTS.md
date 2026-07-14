@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-BewlyCat is a browser extension that enhances the Bilibili homepage experience. Based on BewlyBewly, this fork adds personalized features and optimizations for individual usage patterns. The extension transforms the Bilibili interface with a modern design, custom features, and improved user experience.
+BewlyNeko is a browser extension that enhances the Bilibili homepage experience. Based on BewlyBewly, this fork adds personalized features and optimizations for individual usage patterns. The extension transforms the Bilibili interface with a modern design, custom features, and improved user experience.
 
 ## Development Environment
 

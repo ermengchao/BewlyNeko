@@ -56,7 +56,7 @@ function isSupportedPages(): boolean {
     // https://github.com/BewlyBewly/BewlyBewly/issues/1246
     // https://github.com/BewlyBewly/BewlyBewly/issues/1256
     // https://github.com/BewlyBewly/BewlyBewly/issues/1266
-    // https://github.com/keleus/BewlyCat/issues/150
+    // https://github.com/ermengchao/BewlyNeko/issues/150
     || /https?:\/\/t\.bilibili\.com(?!\/vote|\/share|\/pages\/nav).*/.test(currentUrl)
     // moment detail
     || /https?:\/\/(?:www\.)?bilibili\.com\/opus\/.*/.test(currentUrl)
@@ -120,7 +120,7 @@ export function isSupportedIframePages(): boolean {
       // https://github.com/BewlyBewly/BewlyBewly/issues/1246
       // https://github.com/BewlyBewly/BewlyBewly/issues/1256
       // https://github.com/BewlyBewly/BewlyBewly/issues/1266
-      // https://github.com/keleus/BewlyCat/issues/150
+      // https://github.com/ermengchao/BewlyNeko/issues/150
       || /https?:\/\/t\.bilibili\.com(?!\/vote|\/share|\/pages\/nav).*/.test(currentUrl)
       // notifications page, for `Open the notifications page as a drawer`
       || isNotificationPage()
@@ -134,7 +134,7 @@ export function isSupportedIframePages(): boolean {
 }
 
 if (isElectronEnv) {
-  console.warn('[BewlyCat] Detected Electron environment, extension disabled.')
+  console.warn('[BewlyNeko] Detected Electron environment, extension disabled.')
 }
 else {
   // Fix `OverlayScrollbars` not working in Firefox

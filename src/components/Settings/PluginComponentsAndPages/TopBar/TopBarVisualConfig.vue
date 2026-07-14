@@ -391,7 +391,7 @@ function toggleChannel(value: string) {
                   <Radio v-model="settings.showBewlyOrBiliPageSwitcher" />
                 </SettingsItem>
                 <div text-sm opacity-70 mt-2>
-                  在首页顶栏 Logo 旁显示页面切换器，可在 BewlyCat 页面和 Bilibili 原版页面之间切换。
+                  在首页顶栏 Logo 旁显示页面切换器，可在 BewlyNeko 页面和 Bilibili 原版页面之间切换。
                 </div>
               </div>
 
@@ -400,7 +400,7 @@ function toggleChannel(value: string) {
                   <Radio v-model="settings.showBewlyOrBiliTopBarSwitcher" />
                 </SettingsItem>
                 <div text-sm opacity-70 mt-2>
-                  在页面顶部悬停时显示顶栏切换器，可在 BewlyCat 顶栏和 Bilibili 原版顶栏之间切换。
+                  在页面顶部悬停时显示顶栏切换器，可在 BewlyNeko 顶栏和 Bilibili 原版顶栏之间切换。
                 </div>
               </div>
             </div>

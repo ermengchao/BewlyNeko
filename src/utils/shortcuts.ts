@@ -438,13 +438,13 @@ function toggleFollow(): void {
           }
         }
         catch (error) {
-          console.error('[BewlyCat] Error clicking unfollow:', error)
+          console.error('[BewlyNeko] Error clicking unfollow:', error)
         }
       }, 150) // 增加等待时间到 150ms
     }
   }
   catch (error) {
-    console.error('[BewlyCat] Error toggling follow:', error)
+    console.error('[BewlyNeko] Error toggling follow:', error)
   }
 }
 

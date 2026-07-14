@@ -12,7 +12,7 @@ browser.runtime.onInstalled.addListener(async () => {
 
 // 扩展启动时初始化 WBI 密钥
 initWbiKeys().catch((error) => {
-  console.error('[BewlyCat] WBI keys initialization error:', error)
+  console.error('[BewlyNeko] WBI keys initialization error:', error)
 })
 
 function isExtensionUri(url: string) {

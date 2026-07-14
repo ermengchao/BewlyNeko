@@ -1,13 +1,13 @@
-# BewlyCat
+# BewlyNeko
 
-![GitHub Release](https://img.shields.io/github/v/release/keleus/BewlyCat?label=Github) ![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/oopkfefbgecikmfbbapnlpjidoomhjpl?label=Chrome) ![Edge Addons Version](https://img.shields.io/badge/dynamic/json?color=blue&label=Edge&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Faaammfjdfifgnfnbflolojihjfhdploj&prefix=v) ![Firefox Version](https://img.shields.io/amo/v/bewlycat?label=Firefox)
+![GitHub Release](https://img.shields.io/github/v/release/ermengchao/BewlyNeko?label=Github) ![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/oopkfefbgecikmfbbapnlpjidoomhjpl?label=Chrome) ![Edge Addons Version](https://img.shields.io/badge/dynamic/json?color=blue&label=Edge&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Faaammfjdfifgnfnbflolojihjfhdploj&prefix=v) ![Firefox Version](https://img.shields.io/amo/v/bewlycat?label=Firefox)
 
-![Github Downloads](https://img.shields.io/github/downloads/keleus/BewlyCat/total?label=Github%20Downloads) ![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/oopkfefbgecikmfbbapnlpjidoomhjpl?label=Chrome%20Users) ![Edge Addons Users](https://img.shields.io/badge/dynamic/json?label=Edge%20Users&query=%24.activeInstallCount&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Faaammfjdfifgnfnbflolojihjfhdploj) ![Firefox Users](https://img.shields.io/amo/users/bewlycat?label=Firefox%20Users)
+![Github Downloads](https://img.shields.io/github/downloads/ermengchao/BewlyNeko/total?label=Github%20Downloads) ![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/oopkfefbgecikmfbbapnlpjidoomhjpl?label=Chrome%20Users) ![Edge Addons Users](https://img.shields.io/badge/dynamic/json?label=Edge%20Users&query=%24.activeInstallCount&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Faaammfjdfifgnfnbflolojihjfhdploj) ![Firefox Users](https://img.shields.io/amo/users/bewlycat?label=Firefox%20Users)
 
 此项目基于[BewlyBewly](https://github.com/BewlyBewly/BewlyBewly)开发，并在其基础上进行功能扩充和调整，并合并了一些其他拓展的功能。
 
 <p align="center" style="margin-bottom: 0px !important;">
-<img width="300" alt="BewlyCat icon" src="./assets/icon-512.png"><br/>
+<img width="300" alt="BewlyNeko icon" src="./assets/icon-512.png"><br/>
 </p>
 
 <p align="center">只需对您的 Bilibili 主页进行一些小更改即可。</p>
@@ -70,13 +70,13 @@
 
 ### 本地安装
 
-[CI](https://github.com/keleus/BewlyCat/actions)：使用最新代码自动构建
+[CI](https://github.com/ermengchao/BewlyNeko/actions)：使用最新代码自动构建
 
-[Releases](https://github.com/keleus/BewlyCat/releases)：稳定版
+[Releases](https://github.com/ermengchao/BewlyNeko/releases)：稳定版
 
 #### Edge 和 Chrome(推荐)
 
-> 确保您下载了 [extension.zip](https://github.com/keleus/BewlyCat/releases)。
+> 确保您下载了 [extension.zip](https://github.com/ermengchao/BewlyNeko/releases)。
 
 在 Edge 浏览器中打开 `edge://extensions` 或者在 Chrome 浏览器中打开 `chrome://extensions` 界面，只需将下载的 `extension.zip` 文件拖放到浏览器中即可完成安装。
 
@@ -85,7 +85,7 @@
 
 #### Edge
 
-> 确保您下载了 [extension.zip](https://github.com/keleus/BewlyCat/releases) 并解压缩该文件。
+> 确保您下载了 [extension.zip](https://github.com/ermengchao/BewlyNeko/releases) 并解压缩该文件。
 
 1. 在地址栏输入 `edge://extensions/` 并按回车
 2. 打开 `开发者模式` 并点击 `加载已解压的拓展程序` <br/> <img width="655" alt="image" src="https://user-images.githubusercontent.com/33394391/232246901-e3544c16-bde2-480d-b770-ca5242793963.png">
@@ -93,7 +93,7 @@
 
 #### Chrome
 
-> 确保您下载了 [extension.zip](https://github.com/keleus/BewlyCat/releases) 并解压缩该文件。
+> 确保您下载了 [extension.zip](https://github.com/ermengchao/BewlyNeko/releases) 并解压缩该文件。
 
 1. 在地址栏输入 `chrome://extensions/` 并按回车
 2. 打开 `开发者模式` 并点击 `加载已解压的拓展程序` <br/> <img width="655" alt="Snipaste_2022-03-27_18-17-04" src="https://user-images.githubusercontent.com/33394391/160276882-13da0484-92c1-47dd-add8-7655c5c2bf1c.png">
@@ -105,9 +105,9 @@
 
 查看 [CONTRIBUTING.md](docs/CONTRIBUTING-cmn_CN.md)
 
-### BewlyCat&BewlyBewly贡献者
+### BewlyNeko&BewlyBewly贡献者
 
-[![Contributors](https://contrib.rocks/image?repo=keleus/BewlyCat)](https://github.com/keleus/BewlyCat/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=ermengchao/BewlyNeko)](https://github.com/ermengchao/BewlyNeko/graphs/contributors)
 
 ## ❤️ 鸣谢
 
@@ -120,4 +120,4 @@
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=keleus/BewlyCat&type=Date)](https://www.star-history.com/#keleus/BewlyCat&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=ermengchao/BewlyNeko&type=Date)](https://www.star-history.com/#ermengchao/BewlyNeko&Date)
