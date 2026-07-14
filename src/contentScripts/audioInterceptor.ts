@@ -712,8 +712,9 @@ export function attachToVideo(video: HTMLVideoElement) {
     loudnessAnalysis = null
     unbindCurrentVideoListeners()
 
-    if (e.message?.includes('already connected')) {
-      error('Failed to attach because the video element is already bound to another audio source node', e)
+    if (e.name === 'InvalidStateError' || e.message?.includes('already connected') || e.message?.includes('already associated')) {
+      // Safari reports an existing MediaElementAudioSourceNode as "already associated".
+      log('Video already has an audio source, skipping')
     }
     else {
       error('Error attaching to video', e)
