@@ -1,8 +1,6 @@
 {
-  "plugins": {
-    "release-it-pnpm": {
-      "publishCommand": "echo 'skipping publish'"
-    }
+  "npm": {
+    "publish": false
   },
   "git": {
     "commitMessage": "chore: release v${version}",
@@ -10,20 +8,20 @@
   },
   "hooks": {
     "before:init": [
-      "pnpm run lint",
-      "pnpm run typecheck",
-      "pnpm run test --run"
+      "bun --bun run lint",
+      "bun --bun run typecheck",
+      "bun --bun run test -- --run"
     ],
     "after:bump": [
-      "pnpm run build",
-      "pnpm run build-firefox",
-      "pnpm run pack:zip",
-      "pnpm run pack:zip-firefox",
-      "pnpm run pack:zip-firefox-sources"
+      "bun --bun run build",
+      "bun --bun run build-firefox",
+      "bun --bun run pack:zip",
+      "bun --bun run pack:zip-firefox",
+      "bun --bun run pack:zip-firefox-sources"
     ],
     "after:release": [
       "gh release upload v${version} extension.zip extension-firefox.zip",
-      "pnpm run submit"
+      "bun --bun run submit"
     ]
   }
 }

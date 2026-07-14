@@ -4,7 +4,7 @@
 
 ## 💻 設定開發環境
 
-此專案使用 [Vite](https://vitejs.dev/) 構建，請確保你離線安裝了 [Node.js](https://nodejs.org/) 和 [pnpm](https://pnpm.io/)，並推薦使用 [Visual Studio Code](https://code.visualstudio.com/) 進行開發。
+此專案使用 [Vite](https://vitejs.dev/) 建置，並統一使用 [Bun](https://bun.sh/) 執行工具鏈。請安裝 `package.json` 中宣告的 Bun 版本，不需要另外安裝 Node.js；建議使用 [Visual Studio Code](https://code.visualstudio.com/) 進行開發。
 
 ## 🔧 開發與建置專案
 
@@ -15,20 +15,20 @@
 <details>
  <summary>詳細內容</summary>
 
-1. 執行 pnpm 指令
+1. 執行 bun 指令
 
 ```bash
 # 安裝依賴
-pnpm install
+bun install
 
 # 建立一個用戶的帳戶資料夾，用於擴充功能存儲登入狀態
 mkdir chromium-web-ext-profile
 
 # 運行專案
-pnpm dev
+bun run dev
 
 # 打完這條指令之後，會自動開啓一個新的 Chrome 視窗並打開 BiliBili 網站
-pnpm start:chromium
+bun run start:chromium
 ```
 
 2. 之後每次修改擴充功能，他都會重新載入內容，你可以透過重新整理頁面來查看變更內容
@@ -40,14 +40,14 @@ pnpm start:chromium
 <details>
  <summary>詳細內容</summary>
 
-1. 執行 pnpm 指令
+1. 執行 bun 指令
 
 ```bash
 # 安裝依賴
-pnpm install
+bun install
 
 # 運行專案
-pnpm dev
+bun run dev
 ```
 
 2. 在地址欄輸入 `chrome://extensions/`（Chrome），`edge://extensions/`（Edge）並按 Enter 鍵
@@ -69,7 +69,7 @@ pnpm dev
 建置此擴充功能，需要執行以下指令
 
 ```bash
-pnpm build
+bun run build
 ```
 
 然後打包 `extension` 下的檔案
@@ -81,20 +81,20 @@ pnpm build
 <details>
  <summary>詳細內容</summary>
 
-1. 執行 pnpm 命令
+1. 執行 bun 命令
 
 ```bash
 # 安裝依賴
-pnpm install
+bun install
 
 # 建立一個用戶的帳戶資料夾，用於擴充功能存儲登入狀態
 mkdir firefox-web-ext-profile
 
 # 運行專案
-pnpm dev-firefox
+bun run dev-firefox
 
 # 打完這條指令之後，會自動開啓一個新的 Firefox 視窗並打開 BiliBili 網站
-pnpm start:firefox
+bun run start:firefox
 ```
 
 2. 之後每次修改擴充功能，它都會重新加載，你可以透過重新整理頁面來查看變更內容
@@ -106,14 +106,14 @@ pnpm start:firefox
 <details>
  <summary>詳細內容</summary>
 
-1. 執行 pnpm 命令
+1. 執行 bun 命令
 
 ```bash
 # 安裝依賴
-pnpm install
+bun install
 
 # 運行專案
-pnpm dev-firefox
+bun run dev-firefox
 ```
 
 2. 在瀏覽器中輸入 `about:addons`，點擊 `Extensions` 然後 `Debug Add-ons`
@@ -129,7 +129,7 @@ pnpm dev-firefox
 要構建擴展，運行
 
 ```bash
-pnpm build-firefox
+bun run build-firefox
 ```
 
 然後打包 `extension-firefox` 下的檔案

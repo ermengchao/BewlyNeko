@@ -4,8 +4,7 @@
 
 ## 💻 设置开发环境
 
-此项目是基于 [Vite](https://vitejs.dev/) 构建的，请确保本地安装了 [Node.js](https://nodejs.org/) 和 [pnpm](https://pnpm.io/)，
-同时建议你用 [Visual Studio Code](https://code.visualstudio.com/) 进行开发。
+此项目基于 [Vite](https://vitejs.dev/) 构建，并统一使用 [Bun](https://bun.sh/) 运行工具链。请安装 `package.json` 中声明的 Bun 版本，无需另外安装 Node.js。同时建议使用 [Visual Studio Code](https://code.visualstudio.com/) 进行开发。
 
 ## 🔧 开发和构建项目
 
@@ -16,20 +15,20 @@
 <details>
  <summary>详细内容</summary>
 
-1. 运行 pnpm 命令
+1. 运行 bun 命令
 
 ```bash
 # 安装依赖
-pnpm install
+bun install
 
 # 创建一个用于存储登录状态的扩展程序文件夹
 mkdir chromium-web-ext-profile
 
 # 运行项目
-pnpm dev
+bun run dev
 
 # 打完这条指令之后，会自动打开一个新的 Chrome 窗口并打开 BiliBili 网站
-pnpm start:chromium
+bun run start:chromium
 ```
 
 2. 每次修改扩展程序，它都会重新加载，您可以通过刷新网页来查看更改
@@ -41,14 +40,14 @@ pnpm start:chromium
 <details>
  <summary>详细内容</summary>
 
-1. 运行 pnpm 命令
+1. 运行 bun 命令
 
   ```bash
   # 安装依赖
-  pnpm install
+  bun install
 
   # 运行项目
-  pnpm dev
+  bun run dev
   ```
 
 2. 在地址栏输入 `chrome://extensions/` (Chrome), `edge://extensions/` (Edge) 并按回车
@@ -70,7 +69,7 @@ pnpm start:chromium
 要构建拓展程序，运行
 
 ```bash
-pnpm build
+bun run build
 ```
 
 然后打包到 `extension` 文件夹
@@ -82,20 +81,20 @@ pnpm build
 <details>
  <summary>详细内容</summary>
 
-1. 运行 pnpm 命令
+1. 运行 bun 命令
 
 ```bash
 # 安装依赖
-pnpm install
+bun install
 
 # 创建一个用于存储登录状态的扩展程序文件夹
 mkdir firefox-web-ext-profile
 
 # 运行项目
-pnpm dev-firefox
+bun run dev-firefox
 
 # 打完这条指令之后，会自动打开一个新的 Firefox 窗口并打开 BiliBili 网站
-pnpm start:firefox
+bun run start:firefox
 ```
 
 2. 每次修改扩展程序，它都会重新加载，您可以通过刷新网页来查看更改
@@ -107,14 +106,14 @@ pnpm start:firefox
 <details>
  <summary>详细内容</summary>
 
-1. 运行 pnpm 命令
+1. 运行 bun 命令
 
 ```bash
 # 安装依赖
-pnpm install
+bun install
 
 # 运行项目
-pnpm dev-firefox
+bun run dev-firefox
 ```
 
 2. 在浏览器输入 `about:addons` 之后点击 `Extensions` 然后 `Debug Add-ons`
@@ -131,7 +130,7 @@ pnpm dev-firefox
 
 ```bash
 
-pnpm build-firefox
+bun run build-firefox
 
 ```
 

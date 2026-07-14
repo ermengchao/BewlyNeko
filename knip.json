@@ -11,6 +11,8 @@
   "ignore": ["src/components/Settings/**", "src/inject/**"],
   "ignoreDependencies": [
     "@iconify/json",
+    "lint-staged",
+    "release-it",
     "uno.css"
   ],
   "ignoreBinaries": ["gh", "xcrun"],

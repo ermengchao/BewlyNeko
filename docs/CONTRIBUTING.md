@@ -4,7 +4,7 @@
 
 ## 💻 Setting up the Development Environment
 
-This project is built using [Vite](https://vitejs.dev/), please make sure you have [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/) installed locally, and it is recommended to use [Visual Studio Code](https://code.visualstudio.com/) for development.
+This project is built using [Vite](https://vitejs.dev/) and runs its tooling with [Bun](https://bun.sh/). Install the Bun version declared in `package.json`; a separate Node.js installation is not required. [Visual Studio Code](https://code.visualstudio.com/) is recommended for development.
 
 ## 🔧 Developing and Building the Project
 
@@ -15,20 +15,20 @@ This project is built using [Vite](https://vitejs.dev/), please make sure you ha
 <details>
  <summary>Show more</summary>
 
-1. Run the pnpm command
+1. Run the bun command
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Create a profile folder for the extension to store the login status
 mkdir chromium-web-ext-profile
 
 # Run the project
-pnpm dev
+bun run dev
 
 # After typing this commend, it will automatically open a new Chrome window that opens BiliBili website
-pnpm start:chromium
+bun run start:chromium
 ```
 
 2. Every time you change the extension, it will reload, and you can see the changes by refreshing the webpage
@@ -40,14 +40,14 @@ pnpm start:chromium
 <details>
  <summary>Show more</summary>
 
-1. Run the pnpm command
+1. Run the bun command
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Run the project
-pnpm dev
+bun run dev
 ```
 
 2. Enter `chrome://extensions/` (Chrome), `edge://extensions/` (Edge) in the address bar and press Enter
@@ -69,7 +69,7 @@ After each modification, you need to click the [Reload Extensions](https://chrom
 To build the extension, run
 
 ```bash
-pnpm build
+bun run build
 ```
 
 Then package it to the `extension` folder
@@ -81,20 +81,20 @@ Then package it to the `extension` folder
 <details>
  <summary>Show more</summary>
 
-1. Run the pnpm command
+1. Run the bun command
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Create a profile folder for the extension to store the login status
 mkdir firefox-web-ext-profile
 
 # Run the project
-pnpm dev-firefox
+bun run dev-firefox
 
 # After typing this commend, it will automatically open a new Firefox window that opens BiliBili website
-pnpm start:firefox
+bun run start:firefox
 ```
 
 2. Every time you change the extension, it will reload, and you can see the changes by refreshing the webpage
@@ -106,14 +106,14 @@ pnpm start:firefox
 <details>
  <summary>Show more</summary>
 
-1. Run the pnpm command
+1. Run the bun command
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Run the project
-pnpm dev-firefox
+bun run dev-firefox
 ```
 
 2. In the browser, enter `about:addons`, click on `Extensions` and then `Debug Add-ons`
@@ -129,7 +129,7 @@ pnpm dev-firefox
 To build the extension, run
 
 ```bash
-pnpm build-firefox
+bun run build-firefox
 ```
 
 Then package it to the `extension-firefox` folder

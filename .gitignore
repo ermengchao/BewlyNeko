@@ -5,7 +5,6 @@
 .trae
 .kiro
 .claude
-.pnpm-store/
 *.backup
 *.crx
 *.local

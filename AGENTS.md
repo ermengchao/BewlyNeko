@@ -9,12 +9,12 @@ BewlyNeko is a browser extension that enhances the Bilibili homepage experience.
 ## Development Environment
 
 ### Package Manager
-- Uses `pnpm` as the package manager
+- Uses `bun` 1.3.14 as the package manager and tooling runtime; a separate Node.js installation is not required
 
 ### Key Development Commands
-- `pnpm lint` - Run ESLint
-- `pnpm lint:fix` - Run ESLint with auto-fix
-- `pnpm typecheck` - Run TypeScript type checking
+- `bun run lint` - Run ESLint
+- `bun run lint:fix` - Run ESLint with auto-fix
+- `bun run typecheck` - Run TypeScript type checking
 
 ### Build Process
 The project uses a multi-target build system:
