@@ -56,6 +56,7 @@ export async function getManifest() {
     },
     permissions: [
       'storage',
+      'alarms',
       'declarativeNetRequest',
       ...isSafari ? ['scripting'] : [],
       ...isFirefox

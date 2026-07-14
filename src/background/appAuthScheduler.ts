@@ -1,19 +1,13 @@
+import browser from 'webextension-polyfill'
+
 import { appAuthTokens, resetAppAuthTokens } from '~/logic'
 import { refreshAppAccessToken } from '~/utils/authProvider'
 
-const CHECK_INTERVAL = 5 * 60 * 1000 // 5 minutes
+const ALARM_NAME = 'bewlycat-auth-refresh'
+const CHECK_INTERVAL_MINUTES = 5
 const REFRESH_BUFFER = 10 * 60 * 1000 // 10 minutes
-const MIN_INTERVAL = 60 * 1000
 
-let timer: ReturnType<typeof setInterval> | null = null
 let refreshing = false
-
-function clearTimer() {
-  if (timer) {
-    clearInterval(timer)
-    timer = null
-  }
-}
 
 async function ensureFreshTokens() {
   const tokens = appAuthTokens.value
@@ -49,15 +43,19 @@ async function ensureFreshTokens() {
 }
 
 export function setupAppAuthScheduler() {
-  clearTimer()
+  // 使用 browser.alarms 替代 setInterval，确保非持久后台（Safari）也能按时唤醒
+  browser.alarms.create(ALARM_NAME, { periodInMinutes: CHECK_INTERVAL_MINUTES })
 
-  timer = setInterval(() => {
-    void ensureFreshTokens()
-  }, Math.max(CHECK_INTERVAL, MIN_INTERVAL))
+  browser.alarms.onAlarm.addListener((alarm) => {
+    if (alarm.name === ALARM_NAME) {
+      void ensureFreshTokens()
+    }
+  })
 
+  // 启动时立即检查一次
   void ensureFreshTokens()
 }
 
 export function teardownAppAuthScheduler() {
-  clearTimer()
+  browser.alarms.clear(ALARM_NAME)
 }
