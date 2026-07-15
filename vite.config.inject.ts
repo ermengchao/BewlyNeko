@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 
 import packageJson from './package.json'
 import { isDev, isFirefox, isSafari, r } from './scripts/utils'
+import { SAFARI_PAGE_SCRIPT_GUARD, SAFARI_PAGE_SCRIPT_READY } from './src/constants/safari'
 import { sharedConfig } from './vite.config'
 
 // bundling the content script using Vite
@@ -24,6 +25,8 @@ export default defineConfig({
       output: {
         entryFileNames: 'inject.global.js',
         extend: true,
+        intro: `const bewlyPageScriptGuard = Symbol.for(${JSON.stringify(SAFARI_PAGE_SCRIPT_GUARD)}); if (globalThis[bewlyPageScriptGuard] !== 'ready') { globalThis[bewlyPageScriptGuard] = 'initializing';`,
+        outro: `globalThis[bewlyPageScriptGuard] = 'ready'; window.postMessage({ type: ${JSON.stringify(SAFARI_PAGE_SCRIPT_READY)} }, '*'); } else { window.postMessage({ type: ${JSON.stringify(SAFARI_PAGE_SCRIPT_READY)} }, '*'); }`,
       },
     },
   },

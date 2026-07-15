@@ -7,6 +7,27 @@ import { isDev, isFirefox, isSafari, port, r } from '../scripts/utils'
 export async function getManifest() {
   const pkg = await fs.readJSON(r('package.json')) as typeof PkgType
 
+  const contentScriptMatches = [
+    '*://www.bilibili.com/*',
+    '*://search.bilibili.com/*',
+    '*://t.bilibili.com/*',
+    '*://space.bilibili.com/*',
+    '*://message.bilibili.com/*',
+    '*://member.bilibili.com/*',
+    '*://account.bilibili.com/*',
+    '*://www.hdslb.com/*',
+    '*://passport.bilibili.com/*',
+    '*://music.bilibili.com/*',
+  ]
+  const pageContentScript: Manifest.ContentScript = {
+    matches: contentScriptMatches,
+    js: ['./dist/contentScripts/inject.global.js'],
+    run_at: 'document_start',
+    match_about_blank: true,
+    all_frames: true,
+    world: 'MAIN',
+  }
+
   // update this file to update this manifest.json
   // can also be conditional based on your need
   const manifest: Manifest.WebExtensionManifest = {
@@ -24,10 +45,8 @@ export async function getManifest() {
     //   open_in_tab: true,
     // },
 
-    // Setting `persistent` to true in Manifest V3 results in an error in Firefox
-    // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/background
     background: (isFirefox || isSafari)
-      ? { scripts: ['./dist/background/index.js'], persistent: isFirefox ? undefined : false }
+      ? { scripts: ['./dist/background/index.js'] }
       : { service_worker: './dist/background/index.js', type: 'module' },
 
     icons: {
@@ -38,6 +57,7 @@ export async function getManifest() {
     permissions: [
       'storage',
       'declarativeNetRequest',
+      ...isSafari ? ['scripting'] : [],
       ...isFirefox
         ? ['webRequest', 'webRequestBlocking', 'cookies']
         : [],
@@ -48,43 +68,16 @@ export async function getManifest() {
     ],
     content_scripts: [
       {
-        matches: [
-          '*://www.bilibili.com/*',
-          '*://search.bilibili.com/*',
-          '*://t.bilibili.com/*',
-          '*://space.bilibili.com/*',
-          '*://message.bilibili.com/*',
-          '*://member.bilibili.com/*',
-          '*://account.bilibili.com/*',
-          '*://www.hdslb.com/*',
-          '*://passport.bilibili.com/*',
-          '*://music.bilibili.com/*',
-        ],
+        matches: contentScriptMatches,
         js: ['./dist/contentScripts/index.global.js'],
         css: ['./dist/contentScripts/style.css'],
         run_at: 'document_start',
-        match_about_blank: true,
+        match_about_blank: isSafari ? undefined : true,
         all_frames: true,
       },
-      {
-        matches: [
-          '*://www.bilibili.com/*',
-          '*://search.bilibili.com/*',
-          '*://t.bilibili.com/*',
-          '*://space.bilibili.com/*',
-          '*://message.bilibili.com/*',
-          '*://member.bilibili.com/*',
-          '*://account.bilibili.com/*',
-          '*://www.hdslb.com/*',
-          '*://passport.bilibili.com/*',
-          '*://music.bilibili.com/*',
-        ],
-        js: ['./dist/contentScripts/inject.global.js'],
-        run_at: 'document_start',
-        match_about_blank: true,
-        all_frames: true,
-        world: 'MAIN',
-      },
+      ...isSafari
+        ? []
+        : [pageContentScript],
     ],
     web_accessible_resources: [
       {
@@ -92,6 +85,12 @@ export async function getManifest() {
         matches: ['<all_urls>'],
         // matches: ['./assets/*'],
       },
+      ...isSafari
+        ? [{
+            resources: ['dist/contentScripts/inject.global.js'],
+            matches: contentScriptMatches,
+          }]
+        : [],
     ],
     content_security_policy: isFirefox
       ? {

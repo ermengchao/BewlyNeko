@@ -2,6 +2,7 @@ import browser from 'webextension-polyfill'
 
 import { setupAppAuthScheduler } from './appAuthScheduler'
 import { setupApiMsgListeners } from './messageListeners/api'
+import { setupSafariPageScriptListener } from './messageListeners/safari'
 import { setupTabMsgListeners } from './messageListeners/tabs'
 import { initWbiKeys } from './wbiSign'
 
@@ -50,5 +51,6 @@ if (process.env.FIREFOX) {
 
 // Setup all message listeners
 setupApiMsgListeners()
+setupSafariPageScriptListener()
 setupTabMsgListeners()
 setupAppAuthScheduler()

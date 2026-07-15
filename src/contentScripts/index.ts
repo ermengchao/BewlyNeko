@@ -26,6 +26,7 @@ import { initVerticalVideoZoom, resetVerticalVideoZoom } from '~/utils/verticalV
 import { version } from '../../package.json'
 import { initAudioInterceptor, setupSettingsWatcher } from './audioInterceptor'
 import { setupIframePhotoViewerDetector } from './features/iframePhotoViewerDetector'
+import { setupSafariPageBridge } from './safariPageBridge'
 import App from './views/App.vue'
 import { initVolumeNormalizationControl } from './volumeNormalizationControl'
 
@@ -771,6 +772,8 @@ else {
       })
     }
   })
+
+  setupSafariPageBridge()
 
   // 监听来自父页面的黑暗模式切换消息（用于iframe跨域场景）
   window.addEventListener('message', (event) => {
