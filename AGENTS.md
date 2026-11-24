@@ -9,6 +9,12 @@ This repository is a privately maintained Safari-compatible fork of
 the upstream extension usable on Safari with the smallest practical set of
 local compatibility patches.
 
+BewlyNeko follows a **patch stack workflow**. Keep BewlyCat's commits intact
+and maintain all BewlyNeko-specific changes as an ordered series of commits
+on top of that history. When upstream advances, rebase the stack onto the new
+upstream base on a temporary sync branch and verify Safari compatibility
+before updating `main`.
+
 Follow these priorities in order:
 
 1. Preserve Safari compatibility and the ability to build and run the Safari
@@ -34,8 +40,7 @@ This is not an upstream-contribution repository:
 
 ## Linear Upstream Synchronization Workflow
 
-Keep BewlyCat's commits unchanged and place all BewlyNeko-specific work after
-the latest upstream commit. The intended history is:
+The patch stack follows this commit order.
 
 ```text
 <unchanged BewlyCat history>
@@ -46,9 +51,7 @@ the latest upstream commit. The intended history is:
   -> main
 ```
 
-Treat all local commits after the previous upstream base as one ordered **local
-patch stack**, but keep each concern in a separate, focused commit. In
-particular:
+Keep each concern in a separate, focused commit.
 
 - Tooling migrations, such as replacing ESLint with Biome, come before Safari
   compatibility commits so later work is checked with the maintained toolchain.
